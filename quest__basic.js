@@ -51,6 +51,11 @@ function questType(type) {
 
 function getRankingPoint(questNo) {
 	switch(questNo) {
+		// case 237: // 【節分拡張任務】南方海域 艦隊決戦
+		// 	return 180;
+		// case 843: // 【節分拡張任務】令和二年節分作戦、全力出撃！
+		case 843: // 【節分拡張任務】令和三年節分作戦、全力出撃！
+			return 203;
 		case 854: // 戦果拡張任務！「Z作戦」前段作戦
 			return 350;
 		case 888: // 新編成「三川艦隊」、鉄底海峡に突入せよ！
@@ -69,6 +74,8 @@ function getRankingPoint(questNo) {
 			return 480;
 		case 948: // 機動部隊決戦
 			return 600;
+		case 949: // 改装特務空母「Gambier Bay Mk.II」抜錨！
+			return 800;
 	}
 	return 0;
 }
