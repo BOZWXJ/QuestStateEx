@@ -1218,6 +1218,17 @@ var QUEST_DATA = {
         /** 「22号対水上電探」用意 */
         new QuestData(2, false, false, RESET.NONE, "「22号対水上電探」用意"),
     ],
+    /** [1107]【鋼材輸出】基地航空兵力を増備せよ！ */
+    1107: [
+        /** 「艦上戦闘機」廃棄(一括は別々) */
+        new QuestData(2, false, true, [RESET.YEARLY, RESET.SEPTEMBER], "「艦上戦闘機」廃棄"),
+        /** 「艦上攻撃機」廃棄(一括は別々) */
+        new QuestData(2, false, true, [RESET.YEARLY, RESET.SEPTEMBER], "「艦上攻撃機」廃棄"),
+        /** 「鋼材」用意 */
+        new QuestData(24000, false, false, RESET.NONE, "「鋼材」用意"),
+        /** 「開発資材」用意 */
+        new QuestData(10, false, false, RESET.NONE, "「開発資材」用意"),
+    ],
     // #endregion
 }
 
@@ -1270,12 +1281,12 @@ function addQuestCount(id, count, suffix) {
  * @param {Number} id 任務ID
  * @param {Number} count カウント
  * @param {Number} suffix 接尾辞
- * @param {Boolean} isRewrite 強制的に書き換えるか(デフォルト:false)
+ * @param {Boolean} forceRewrite 強制的に書き換えるか(デフォルト:false)
  */
-function saveQuestCount(id, count, suffix, isRewrite) {
+function saveQuestCount(id, count, suffix, forceRewrite) {
     var s = suffix === undefined ? 1 : suffix
     var key = "Count" + id + "_" + s
-    if (isActive(id) || (isRewrite === undefined ? false : isRewrite)) {
+    if (isActive(id) || (forceRewrite === undefined ? false : forceRewrite)) {
         setData(key, Math.min(QUEST_DATA[id][s - 1].max, count))
     }
 }

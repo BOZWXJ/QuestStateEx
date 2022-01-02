@@ -1057,6 +1057,9 @@ function addCountForDestroyItem2Part(data) {
         addQuestCount(1103, getLength(slotitemId[125]), 1) // 61cm三連装(酸素)魚雷
         // 潜水艦電子兵装の量産
         addQuestCount(1104, getLength(slotitemId[106]), 1) // 13号対空電探改
+        // 【鋼材輸出】基地航空兵力を増備せよ！
+        addQuestCount(1107, getLength(type2[6]), 1) // 艦上戦闘機
+        addQuestCount(1107, getLength(type2[8]), 2) // 艦上攻撃機
     }
     addQuestCount(613)
 }
@@ -1468,6 +1471,7 @@ function updateMaterial() {
         saveQuestCount(716, steel, 2, true) // 「軽巡」級の改修工事を実施せよ！[鋼材]
         saveQuestCount(717, steel, 2, true) // 続：「軽巡」級の改修工事を実施せよ！[鋼材]
         saveQuestCount(712, steel, 4, true) // 【桃の節句】菱餅改修：2021 週[鋼材]
+        saveQuestCount(1107, steel, 3, true) // 【鋼材輸出】基地航空兵力を増備せよ！[鋼材]
         // ボーキサイト
         saveQuestCount(675, bauxite, 3, true) // 運用装備の統合整備[ボーキサイト]
         saveQuestCount(678, bauxite, 3, true) // 主力艦上戦闘機の更新[ボーキサイト]
@@ -1485,6 +1489,7 @@ function updateMaterial() {
         saveQuestCount(712, research, 2, true) // 【桃の節句】菱餅改修：2021 週[開発資材]
         saveQuestCount(1103, research, 2, true) // 潜水艦強化兵装の量産[開発資材]
         saveQuestCount(1104, research, 2, true) // 潜水艦電子兵装の量産[開発資材]
+        saveQuestCount(1107, research, 4, true) // 【鋼材輸出】基地航空兵力を増備せよ！[開発資材]
     }
 }
 
