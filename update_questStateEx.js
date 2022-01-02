@@ -1394,6 +1394,7 @@ function addCountForPracticeBattleResultPart(data) {
         }).filter(function (name) {
             return ["ウォースパイト", "こんごう", "アークロイヤル", "ネルソン", "ジャーヴィス", "ジェーナス"].indexOf(name) >= 0
         }).length
+        var isExFlotilla15 = ships.length >= 2 && [568, 670].indexOf(ships[0].shipId) >= 0 && [568, 670].indexOf(ships[1].shipId) >= 0
         if (flotilla18 >= 4) {
             addQuestCount(337) // 「十八駆」演習！
         }
@@ -1408,6 +1409,9 @@ function addCountForPracticeBattleResultPart(data) {
         }
         if (teatime >= 4) {
             addQuestCount(345) // 演習ティータイム！
+        }
+        if (isExFlotilla15) {
+            addQuestCount(355) // 精鋭「第十五駆逐隊」第一小隊演習！
         }
     }
     if (isWinA(rank)) {

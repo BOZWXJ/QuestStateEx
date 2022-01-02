@@ -715,6 +715,11 @@ var QUEST_DATA = {
         /** A勝利 */
         new QuestData(3, true, true, [RESET.NOT_SATISFY_DAILY, RESET.YEARLY, RESET.MARCH]),
     ],
+    /** [355]精鋭「第十五駆逐隊」第一小隊演習！ */
+    355: [
+        /** S勝利 */
+        new QuestData(4, true, true, [RESET.NOT_SATISFY_DAILY, RESET.YEARLY, RESET.OCTOBER]),
+    ],
     // #endregion
     // #region 遠征
     /** [402]「遠征」を3回成功させよう！ */
