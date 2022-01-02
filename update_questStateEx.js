@@ -426,6 +426,7 @@ function addCountForBattleResultPart(data) {
     }).length >= 2
     var has912Org = ships[0].shipInfo.flagship === "あかし" && getLength(stypes[SHIP_TYPE.DD]) >= 3
     var has914Org = getLength(stypes[SHIP_TYPE.CA]) >= 3 && getLength(stypes[SHIP_TYPE.DD]) >= 1
+    var has946Org = [SHIP_TYPE.CV, SHIP_TYPE.CVB, SHIP_TYPE.CVL].indexOf(ships[0].stype) >= 0 && (getLength(stypes[SHIP_TYPE.CA]) + getLength(stypes[SHIP_TYPE.CAV])) >= 2
     var has948Org = [SHIP_TYPE.CVL, SHIP_TYPE.CV, SHIP_TYPE.CVB].indexOf(ships[0].stype) >= 0 && Number(lastBattleDto.dock.id) === 1
     // #region ○-○ボス勝利など
     // ボス戦じゃないなら処理終了
@@ -565,6 +566,9 @@ function addCountForBattleResultPart(data) {
             if (has907Org) {
                 addQuestCount(907, 1, 2) // 【桃の節句】南西諸島海域、春の戦闘哨戒！[2-2]
             }
+            if (has946Org) {
+                addQuestCount(946, 1, 1) // 空母機動部隊、出撃！敵艦隊を迎撃せよ！[2-2]
+            }
         }
         if (isWinA(rank)) {
             // if (setsubun1) {
@@ -592,6 +596,9 @@ function addCountForBattleResultPart(data) {
             if (has907Org) {
                 addQuestCount(907, 1, 3) // 【桃の節句】南西諸島海域、春の戦闘哨戒！[2-3]
             }
+            if (has946Org) {
+                addQuestCount(946, 1, 2) // 空母機動部隊、出撃！敵艦隊を迎撃せよ！[2-3]
+            }
         }
         if (isWinA(rank)) {
             // if (has909Org) {
@@ -608,6 +615,9 @@ function addCountForBattleResultPart(data) {
     if (isEqualMap(2, 4)) {
         if (isWinS(rank)) {
             addQuestCount(822) // 沖ノ島海域迎撃戦
+            if (has946Org) {
+                addQuestCount(946, 1, 3) // 空母機動部隊、出撃！敵艦隊を迎撃せよ！[2-4]
+            }
         }
         if (isWinA(rank)) {
             if (Number(lastBattleDto.dock.id) === 1) {

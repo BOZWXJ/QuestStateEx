@@ -614,6 +614,15 @@ var QUEST_DATA = {
         /** 深海東方部隊 海峡封鎖部隊旗艦(7-3-2 ボス)S 勝利 */
         new QuestData(2, false, true, [RESET.YEARLY, RESET.SEPTEMBER], "7-3-2ボスS勝利"),
     ],
+    /**[946]空母機動部隊、出撃！敵艦隊を迎撃せよ！ */
+    946: [
+        /** 敵通商破壊機動部隊 主力艦隊(2-2ボス)S勝利 */
+        new QuestData(1, false, true, [RESET.YEARLY, RESET.JUNE], "2-2ボスS勝利"),
+        /** 敵主力打撃群(2-3ボス)S勝利 */
+        new QuestData(1, false, true, [RESET.YEARLY, RESET.JUNE], "2-3ボスS勝利"),
+        /** 敵侵攻中核艦隊(2-4ボス)S勝利 */
+        new QuestData(1, false, true, [RESET.YEARLY, RESET.JUNE], "2-4ボスS勝利"),
+    ],
     /**[947]AL 作戦 */
     947: [
         /** 敵北方侵攻艦隊(3-1 ボス)S 勝利 */
