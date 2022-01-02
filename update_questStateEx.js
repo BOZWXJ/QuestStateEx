@@ -1370,6 +1370,8 @@ function addCountForPracticeBattleResultPart(data) {
         return ship.stype
     }))
     if (isWin(rank)) {
+        var has353Org = [SHIP_TYPE.CA, SHIP_TYPE.CAV].indexOf(ships[0].stype) >= 0 &&
+            (getLength(stypes[SHIP_TYPE.CA]) + getLength(stypes[SHIP_TYPE.CAV])) >= 4 && getLength(stypes[SHIP_TYPE.DD]) >= 2
         addQuestCount(304) // 「演習」で他提督を圧倒せよ！
         addQuestCount(302) // 大規模演習
         addQuestCount(311) // 精鋭艦隊演習
@@ -1384,6 +1386,9 @@ function addCountForPracticeBattleResultPart(data) {
             if (dd > 1 && cv > 1) {
                 addQuestCount(330) // 空母機動部隊、演習始め！
             }
+        }
+        if (has353Org) {
+            addQuestCount(353) // 「巡洋艦戦隊」演習！
         }
     }
     var dedd = getLength(stypes[SHIP_TYPE.DE]) + getLength(stypes[SHIP_TYPE.DD])
@@ -1404,7 +1409,13 @@ function addCountForPracticeBattleResultPart(data) {
         }).filter(function (name) {
             return ["ウォースパイト", "こんごう", "アークロイヤル", "ネルソン", "ジャーヴィス", "ジェーナス"].indexOf(name) >= 0
         }).length
-        var isExFlotilla15 = ships.length >= 2 && [568, 670].indexOf(ships[0].shipId) >= 0 && [568, 670].indexOf(ships[1].shipId) >= 0
+        var has354Org = ships[0].shipId === 707 && ships.map(function (ship) {
+            return (ship.shipInfo.json.api_ctype | 0)
+        }).filter(function (ctype) {
+            // Fletcher級orJohn C.Butler級
+            return ctype === 91 || ctype === 87
+        }).length >= 2
+        var hasExFlotilla15 = ships.length >= 2 && [568, 670].indexOf(ships[0].shipId) >= 0 && [568, 670].indexOf(ships[1].shipId) >= 0
         if (flotilla18 >= 4) {
             addQuestCount(337) // 「十八駆」演習！
         }
@@ -1420,7 +1431,10 @@ function addCountForPracticeBattleResultPart(data) {
         if (teatime >= 4) {
             addQuestCount(345) // 演習ティータイム！
         }
-        if (isExFlotilla15) {
+        if (has354Org) {
+            addQuestCount(354) // 「改装特務空母」任務部隊演習！
+        }
+        if (hasExFlotilla15) {
             addQuestCount(355) // 精鋭「第十五駆逐隊」第一小隊演習！
         }
     }

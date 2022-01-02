@@ -43,7 +43,9 @@ function categoryColor(category) {
     switch (category) {
         case 1: //編成
             return new RGB(0xAA, 0xFF, 0xAA)
-        case 2: //出撃
+        case 2:
+        case 8:
+        case 9: //出撃
             return new RGB(0xFF, 0xCC, 0xCC)
         case 3: //演習
             return new RGB(0xDD, 0xFF, 0xAA)
@@ -51,13 +53,11 @@ function categoryColor(category) {
             return new RGB(0xCC, 0xFF, 0xFF)
         case 5: //補給/入渠
             return new RGB(0xFF, 0xFF, 0xCC)
-        case 6: //工廠
+        case 6:
+        case 11: //工廠
             return new RGB(0xDD, 0xCC, 0xBB)
         case 7: //改装
             return new RGB(0xDD, 0xCC, 0xFF)
-        case 8: //出撃
-        case 9: //出撃
-            return new RGB(0xFF, 0xCC, 0xCC)
         default:
             return new RGB(0xFF, 0xFF, 0xFF)
     }

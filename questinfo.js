@@ -724,6 +724,16 @@ var QUEST_DATA = {
         /** A勝利 */
         new QuestData(3, true, true, [RESET.NOT_SATISFY_DAILY, RESET.YEARLY, RESET.MARCH]),
     ],
+    /** [353]「巡洋艦戦隊」演習！ */
+    353: [
+        /** 勝利 */
+        new QuestData(5, true, true, [RESET.NOT_SATISFY_DAILY, RESET.YEARLY, RESET.JUNE]),
+    ],
+    /** [354]「改装特務空母」任務部隊演習！ */
+    354: [
+        /** S勝利 */
+        new QuestData(4, true, true, [RESET.NOT_SATISFY_DAILY, RESET.YEARLY, RESET.JULY]),
+    ],
     /** [355]精鋭「第十五駆逐隊」第一小隊演習！ */
     355: [
         /** S勝利 */
