@@ -1,21 +1,21 @@
 /**
- * 任務進捗詳細 Ver.2.5.6
+ * 任務進捗詳細 Ver.2.5.7
  * Author:Nishisonic,Nekopanda
  * LastUpdate:2022/01/02
  */
 
 data_prefix = "QSE.Ver2."
 /** バージョン */
-var VERSION = 2.56
+var VERSION = 2.57
 /** バージョン確認URL */
-var UPDATE_CHECK_URL = "https://api.github.com/repos/Nishisonic/QuestStateEx/releases/latest"
+var UPDATE_CHECK_URL = "https://api.github.com/repos/BOZWXJ/QuestStateEx/releases/latest"
 /** ファイルの場所 */
 var FILE_URL = [
-    "https://raw.githubusercontent.com/Nishisonic/QuestStateEx/master/quest__basic.js",
-    "https://raw.githubusercontent.com/Nishisonic/QuestStateEx/master/quest_stateEx.js",
-    "https://raw.githubusercontent.com/Nishisonic/QuestStateEx/master/questinfo.js",
-    "https://raw.githubusercontent.com/Nishisonic/QuestStateEx/master/queststyle.js",
-    "https://raw.githubusercontent.com/Nishisonic/QuestStateEx/master/update_questStateEx.js",
+    "https://raw.githubusercontent.com/BOZWXJ/QuestStateEx/master/quest__basic.js",
+    "https://raw.githubusercontent.com/BOZWXJ/QuestStateEx/master/quest_stateEx.js",
+    "https://raw.githubusercontent.com/BOZWXJ/QuestStateEx/master/questinfo.js",
+    "https://raw.githubusercontent.com/BOZWXJ/QuestStateEx/master/queststyle.js",
+    "https://raw.githubusercontent.com/BOZWXJ/QuestStateEx/master/update_questStateEx.js",
 ]
 
 /** 艦種 */
@@ -289,22 +289,22 @@ var QUEST_DATA = {
     /** [249]「第五戦隊」出撃せよ！ */
     249: [
         /** 敵主力艦隊(2-5ボス)S勝利 */
-        new QuestData(1, true, true, RESET.MONTHLY),
+        new QuestData(1, true, true, RESET.MONTHLY, "2-5ボスS勝利"),
     ],
     /** [256]「潜水艦隊」出撃せよ！ */
     256: [
         /** 敵回航中空母(6-1ボス)S勝利 */
-        new QuestData(3, true, true, RESET.MONTHLY),
+        new QuestData(3, true, true, RESET.MONTHLY, "6-1ボスS勝利"),
     ],
     /** [257]「水雷戦隊」南西へ！ */
     257: [
         /** 敵機動部隊(1-4ボス)S勝利 */
-        new QuestData(1, true, true, RESET.MONTHLY),
+        new QuestData(1, true, true, RESET.MONTHLY, "1-4ボスS勝利"),
     ],
     /** [259]「水上打撃部隊」南方へ！ */
     259: [
         /** 敵前線司令艦隊(5-1ボス)S勝利 */
-        new QuestData(1, true, true, RESET.MONTHLY),
+        new QuestData(1, true, true, RESET.MONTHLY, "5-1ボスS勝利"),
     ],
     /** [261]海上輸送路の安全確保に努めよ！ */
     261: [
@@ -314,7 +314,7 @@ var QUEST_DATA = {
     /** [264]「空母機動部隊」西へ！ */
     264: [
         /** 東方主力艦隊(4-2ボス)S勝利 */
-        new QuestData(1, true, true, RESET.MONTHLY),
+        new QuestData(1, true, true, RESET.MONTHLY, "4-2ボスS勝利"),
     ],
     /** [265]海上護衛強化月間 */
     265: [
@@ -426,7 +426,7 @@ var QUEST_DATA = {
     /** [861]強行輸送艦隊、抜錨！ */
     861: [
         /**  */
-        new QuestData(2, true, true, RESET.QUARTERLY),
+        new QuestData(2, true, true, RESET.QUARTERLY, "1-6"),
     ],
     /** [862]前線の航空偵察を実施せよ！ */
     862: [
@@ -1042,6 +1042,17 @@ var QUEST_DATA = {
         new QuestData(1500, false, false, RESET.NONE, "「鋼材」用意"),
         /** 「ボーキサイト」用意 */
         new QuestData(1500, false, false, RESET.NONE, "「ボーキサイト」用意"),
+    ],
+    /** [657]新型兵装開発整備の強化 */
+    657: [
+        /** 「小口径主砲」廃棄(一括は別々) */
+        new QuestData(6, false, true, [RESET.YEARLY, RESET.SEPTEMBER], "「小口径主砲」廃棄"),
+        /** 「中口径主砲」廃棄(一括は別々) */
+        new QuestData(5, false, true, [RESET.YEARLY, RESET.SEPTEMBER], "「中口径主砲」廃棄"),
+        /** 「魚雷」廃棄(一括は別々) */
+        new QuestData(4, false, true, [RESET.YEARLY, RESET.SEPTEMBER], "「魚雷」廃棄"),
+        /** 「鋼材」用意 */
+        new QuestData(4000, false, false, RESET.NONE, "「鋼材」用意"),
     ],
     /** [663]新型艤装の継続研究 */
     663: [
