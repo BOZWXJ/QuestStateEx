@@ -1,12 +1,12 @@
 /**
- * 任務進捗詳細 Ver.2.5.7
+ * 任務進捗詳細 Ver.2.5.8
  * Author:Nishisonic,Nekopanda
  * LastUpdate:2022/01/02
  */
 
 data_prefix = "QSE.Ver2."
 /** バージョン */
-var VERSION = 2.57
+var VERSION = 2.58
 /** バージョン確認URL */
 var UPDATE_CHECK_URL = "https://api.github.com/repos/BOZWXJ/QuestStateEx/releases/latest"
 /** ファイルの場所 */
@@ -319,12 +319,12 @@ var QUEST_DATA = {
     /** [265]海上護衛強化月間 */
     265: [
         /** 敵通商破壊主力艦隊(1-5ボス)A勝利 */
-        new QuestData(10, true, true, RESET.MONTHLY),
+        new QuestData(10, true, true, RESET.MONTHLY, "1-5ボスA勝利"),
     ],
     /** [266]「水上反撃部隊」突入せよ！ */
     266: [
         /** 敵主力艦隊(2-5ボス)S勝利 */
-        new QuestData(1, true, true, RESET.MONTHLY),
+        new QuestData(1, true, true, RESET.MONTHLY, "2-5ボスS勝利"),
     ],
     /** [280]兵站線確保！海上警備を強化実施せよ！ */
     280: [
@@ -351,7 +351,7 @@ var QUEST_DATA = {
     /** [822]沖ノ島海域迎撃戦 */
     822: [
         /** 敵侵攻中核艦隊(2-4ボス)S勝利 */
-        new QuestData(2, true, true, RESET.QUARTERLY),
+        new QuestData(2, true, true, RESET.QUARTERLY, "2-4ボスS勝利"),
     ],
     // /** [840]【節分任務】令和二年節分作戦 */
     // 840: [
@@ -431,7 +431,7 @@ var QUEST_DATA = {
     /** [862]前線の航空偵察を実施せよ！ */
     862: [
         /** 留守泊地旗艦艦隊(6-3ボス)A勝利 */
-        new QuestData(2, true, true, RESET.QUARTERLY),
+        new QuestData(2, true, true, RESET.QUARTERLY, "6-3ボスA勝利"),
     ],
     /** [872]戦果拡張任務！「Z作戦」後段作戦 */
     872: [
@@ -456,7 +456,7 @@ var QUEST_DATA = {
     /** [875]精鋭「三一駆」、鉄底海域に突入せよ！ */
     875: [
         /** 敵補給部隊本体(5-4ボス)S勝利 */
-        new QuestData(2, true, true, RESET.QUARTERLY),
+        new QuestData(2, true, true, RESET.QUARTERLY, "5-4ボスS勝利"),
     ],
     /** [888]新編成「三川艦隊」、鉄底海峡に突入せよ！ */
     888: [
@@ -769,7 +769,7 @@ var QUEST_DATA = {
     /** [424]輸送船団護衛を強化せよ！ */
     424: [
         /** 「海上護衛任務」成功 */
-        new QuestData(4, true, true, RESET.MONTHLY),
+        new QuestData(4, true, true, RESET.MONTHLY, "海上護衛任務"),
     ],
     /** [426]海上通商航路の警戒を厳とせよ！ */
     426: [
@@ -959,7 +959,7 @@ var QUEST_DATA = {
     /** [628]機種転換 */
     628: [
         /** 「零式艦戦52型」廃棄 */
-        new QuestData(2, true, true, RESET.MONTHLY),
+        new QuestData(2, true, true, RESET.MONTHLY, "「零式艦戦52型」廃棄"),
     ],
     /** [637]「熟練搭乗員」養成 */
     637: [
