@@ -6,7 +6,7 @@
 
 data_prefix = "QSE.Ver2."
 /** バージョン */
-var VERSION = 2.58
+var VERSION = 2.59
 /** バージョン確認URL */
 var UPDATE_CHECK_URL = "https://api.github.com/repos/BOZWXJ/QuestStateEx/releases/latest"
 /** ファイルの場所 */
@@ -1263,6 +1263,21 @@ var QUEST_DATA = {
         new QuestData(24000, false, false, RESET.NONE, "「鋼材」用意"),
         /** 「開発資材」用意 */
         new QuestData(10, false, false, RESET.NONE, "「開発資材」用意"),
+    ],
+    /** [1120]【機種整理統合】新型戦闘機の量産計画 */
+    1120: [
+        /** 「艦上戦闘機」廃棄(一括は別々) */
+        new QuestData(4, false, true, [RESET.YEARLY, RESET.DECEMBER], "「艦上戦闘機」廃棄"),
+        /** 「艦上爆撃機」廃棄(一括は別々) */
+        new QuestData(4, false, true, [RESET.YEARLY, RESET.DECEMBER], "「艦上爆撃機」廃棄"),
+        /** 「艦上攻撃機」廃棄(一括は別々) */
+        new QuestData(4, false, true, [RESET.YEARLY, RESET.DECEMBER], "「艦上攻撃機」廃棄"),
+        /** 「零式艦戦21型」用意 */
+        new QuestData(3, false, false, RESET.NONE, "「零式艦戦21型」用意"),
+        /** 「零式艦戦52型」用意 */
+        new QuestData(3, false, false, RESET.NONE, "「零式艦戦52型」用意"),
+        /** 「ボーキサイト」用意 */
+        new QuestData(1800, false, false, RESET.NONE, "「ボーキサイト」用意"),
     ],
     // #endregion
 }

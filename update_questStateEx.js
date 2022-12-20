@@ -216,6 +216,8 @@ function savePortItem(data) {
         saveQuestCount(1103, getLength(itemList[106]), 4, true) // 潜水艦強化兵装の量産[13号対空電探改]
         saveQuestCount(1104, getLength(itemList[46]), 3, true) // 潜水艦電子兵装の量産[九三式水中聴音機]
         saveQuestCount(1104, getLength(itemList[28]), 4, true) // 潜水艦強化兵装の量産[22号対水上電探]
+        saveQuestCount(1120, getLength(itemList[20]), 4, true) // 【機種整理統合】新型戦闘機の量産計画[零式艦戦21型]
+        saveQuestCount(1120, getLength(itemList[21]), 5, true) // 【機種整理統合】新型戦闘機の量産計画[零式艦戦52型]
     }
 }
 
@@ -1074,6 +1076,10 @@ function addCountForDestroyItem2Part(data) {
         // 【鋼材輸出】基地航空兵力を増備せよ！
         addQuestCount(1107, getLength(type2[6]), 1) // 艦上戦闘機
         addQuestCount(1107, getLength(type2[8]), 2) // 艦上攻撃機
+        // 【機種整理統合】新型戦闘機の量産計画
+        addQuestCount(1120, getLength(type2[6]), 1) // 艦上戦闘機
+        addQuestCount(1120, getLength(type2[7]), 2) // 艦上爆撃機
+        addQuestCount(1120, getLength(type2[8]), 3) // 艦上攻撃機
     }
     addQuestCount(613)
 }
@@ -1516,6 +1522,7 @@ function updateMaterial() {
         saveQuestCount(715, bauxite, 3, true) // 続：「駆逐艦」の改修工事を実施せよ！[ボーキサイト]
         saveQuestCount(716, bauxite, 3, true) // 「軽巡」級の改修工事を実施せよ！[ボーキサイト]
         saveQuestCount(717, bauxite, 3, true) // 続：「軽巡」級の改修工事を実施せよ！[ボーキサイト]
+        saveQuestCount(1120, bauxite, 6, true) // 【機種整理統合】新型戦闘機の量産計画[ボーキサイト]
         // 開発資材
         saveQuestCount(681, research, 3, true) // 航空戦力の再編増強準備[開発資材]
         saveQuestCount(712, research, 2, true) // 【桃の節句】菱餅改修：2021 週[開発資材]
