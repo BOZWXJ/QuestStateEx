@@ -430,6 +430,40 @@ function addCountForBattleResultPart(data) {
     var has914Org = getLength(stypes[SHIP_TYPE.CA]) >= 3 && getLength(stypes[SHIP_TYPE.DD]) >= 1
     var has946Org = [SHIP_TYPE.CV, SHIP_TYPE.CVB, SHIP_TYPE.CVL].indexOf(ships[0].stype) >= 0 && (getLength(stypes[SHIP_TYPE.CA]) + getLength(stypes[SHIP_TYPE.CAV])) >= 2
     var has948Org = [SHIP_TYPE.CVL, SHIP_TYPE.CV, SHIP_TYPE.CVB].indexOf(ships[0].stype) >= 0 && Number(lastBattleDto.dock.id) === 1
+    var has973Qrg = (getLength(stypes[SHIP_TYPE.CVL]) + getLength(stypes[SHIP_TYPE.CV]) + getLength(stypes[SHIP_TYPE.CVB])) == 0 && ships.map(function (ship) {
+        return ship.shipInfo.flagship
+    }).filter(function (name) {
+        // 米英艦(空母以外)
+        // Colorado /Colorado改
+        // Maryland / Maryland改
+        // Washington / Washington改
+        // South Dakota / South Dakota改
+        // Massachusetts / Massachusetts改
+        // Iowa / Iowa改
+        // Northampton / Northampton改
+        // Houston / Houston改
+        // Tuscaloosa / Tuscaloosa改
+        // Brooklyn / Brooklyn改
+        // Honolulu / Honolulu改
+        // Helena / Helena改
+        // Atlanta / Atlanta改
+        // Fletcher / Fletcher改 / Fletcher改 Mod.2 / Fletcher Mk.II
+        // Johnston / Johnston改
+        // Heywood L.E. / Heywood L.E.改
+        // Samuel B.Roberts / Samuel B.Roberts改 / Samuel B.Roberts Mk.II
+        // Scamp / Scamp改
+        // Warspite / Warspite改
+        // Nelson / Nelson改
+        // Sheffield / Sheffield改
+        // Jervis / Jervis改
+        // Janus / Janus改
+        return ["コロラド", "メリーランド", "ワシントン", "サウスダコタ", "マサチューセッツ", "アイオワ", "ノーザンプトン", "ヒューストン", "タスカルーサ", "ブルックリン", "ホノルル", "ヘレナ", "アトランタ", "フレッチャー", "ジョンストン", "ヘイウッド", "サミュエル・B・ロバーツ", "スキャンプ", "ウォースパイト", "ネルソン", "シェフィールド", "ジャーヴィス", "ジェーナス"].indexOf(name) >= 0
+    }).length >= 3
+    var has975Qrg = ships.map(function (ship) {
+        return ship.shipId
+    }).filter(function (id) {
+        return id === 666 || id === 647 || id === 195 || id === 627
+    }).length >= 4
     // #region ○-○ボス勝利など
     // ボス戦じゃないなら処理終了
     if (!isEqualEvent(EVENT_ID.BOSS_BATTLE)) return
@@ -511,6 +545,9 @@ function addCountForBattleResultPart(data) {
             addQuestCount(893, 1, 1) // 泊地周辺海域の安全確保を徹底せよ！[1-5]
             if (has905Org) {
                 addQuestCount(905, 1, 4) // 「海防艦」、海を護る！[1-5]
+            }
+            if (has975Qrg) {
+                addQuestCount(975, 1, 1) // 精鋭「第十九駆逐隊」、全力出撃！[1-5]
             }
         }
         if (isWinA(rank)) {
@@ -601,6 +638,9 @@ function addCountForBattleResultPart(data) {
             if (has946Org) {
                 addQuestCount(946, 1, 2) // 空母機動部隊、出撃！敵艦隊を迎撃せよ！[2-3]
             }
+            if (has975Qrg) {
+                addQuestCount(975, 1, 2) // 精鋭「第十九駆逐隊」、全力出撃！[2-3]
+            }
         }
         if (isWinA(rank)) {
             // if (has909Org) {
@@ -659,12 +699,22 @@ function addCountForBattleResultPart(data) {
             if (getLength(stypes[SHIP_TYPE.CL]) > 0) {
                 addQuestCount(873, 1, 1) // 北方海域警備を実施せよ！[3-1]
             }
+            if (has973Qrg) {
+                addQuestCount(973, 1, 1) // 日英米合同水上艦隊、抜錨せよ！[3-1]
+            }
         }
     }
-    if (isEqualMap(3, 2) && isWinA(rank)) {
-        // 軽巡1隻以上
-        if (getLength(stypes[SHIP_TYPE.CL]) > 0) {
-            addQuestCount(873, 1, 2) // 北方海域警備を実施せよ！[3-2]
+    if (isEqualMap(3, 2)) {
+        if (isWinS(rank)) {
+            if (has975Qrg) {
+                addQuestCount(975, 1, 3) // 精鋭「第十九駆逐隊」、全力出撃！[3-2]
+            }
+        }
+        if (isWinA(rank)) {
+            // 軽巡1隻以上
+            if (getLength(stypes[SHIP_TYPE.CL]) > 0) {
+                addQuestCount(873, 1, 2) // 北方海域警備を実施せよ！[3-2]
+            }
         }
     }
     if (isEqualMap(3, 3)) {
@@ -677,6 +727,9 @@ function addCountForBattleResultPart(data) {
             // 軽巡1隻以上
             if (getLength(stypes[SHIP_TYPE.CL]) > 0) {
                 addQuestCount(873, 1, 3) // 北方海域警備を実施せよ！[3-3]
+            }
+            if (has973Qrg) {
+                addQuestCount(973, 1, 2) // 日英米合同水上艦隊、抜錨せよ！[3-3]
             }
         }
     }
@@ -757,6 +810,9 @@ function addCountForBattleResultPart(data) {
             if (has914Org) {
                 addQuestCount(914, 1, 3) // 重巡戦隊、西へ！[4-3]
             }
+            if (has973Qrg) {
+                addQuestCount(973, 1, 4) // 日英米合同水上艦隊、抜錨せよ！[4-3]
+            }
         }
     }
     if (isEqualMap(4, 4)) {
@@ -826,6 +882,9 @@ function addCountForBattleResultPart(data) {
         }
         if (has904Org) {
             addQuestCount(904, 1, 4) // 精鋭「十九駆」、躍り出る！[5-3]
+        }
+        if (has975Qrg) {
+            addQuestCount(975, 1, 4) // 精鋭「第十九駆逐隊」、全力出撃！[5-3]
         }
     }
     if (isEqualMap(5, 4) && isWinS(rank)) {
@@ -937,9 +996,16 @@ function addCountForBattleResultPart(data) {
             // }
         }
     }
-    if (isEqualCell(7, 3, [18, 23, 24, 25]) && isWinS(rank)) {
-        if (has928Org) {
-            addQuestCount(928, 1, 3) // 歴戦「第十方面艦隊」、全力出撃！[7-3-2]
+    if (isEqualCell(7, 3, [18, 23, 24, 25])) {
+        if (isWinS(rank)) {
+            if (has928Org) {
+                addQuestCount(928, 1, 3) // 歴戦「第十方面艦隊」、全力出撃！[7-3-2]
+            }
+        }
+        if (isWinA(rank)) {
+            if (has973Qrg) {
+                addQuestCount(973, 1, 3) // 日英米合同水上艦隊、抜錨せよ！[7-3-2]
+            }
         }
     }
     // #endregion
@@ -1080,6 +1146,8 @@ function addCountForDestroyItem2Part(data) {
         addQuestCount(1120, getLength(type2[6]), 1) // 艦上戦闘機
         addQuestCount(1120, getLength(type2[7]), 2) // 艦上爆撃機
         addQuestCount(1120, getLength(type2[8]), 3) // 艦上攻撃機
+        // 改良三座水上偵察機の増備
+        addQuestCount(1123, getLength(slotitemId[82]), 1) // 九七式艦攻(九三一空)
     }
     addQuestCount(613)
 }
@@ -1426,6 +1494,11 @@ function addCountForPracticeBattleResultPart(data) {
             return ctype === 91 || ctype === 87
         }).length >= 2
         var hasExFlotilla15 = ships.length >= 2 && [568, 670].indexOf(ships[0].shipId) >= 0 && [568, 670].indexOf(ships[1].shipId) >= 0
+        var hasExFlotilla19 = ships.map(function (ship) {
+            return ship.shipId
+        }).filter(function (id) {
+            return id === 666 || id === 647 || id === 195 || id === 627
+        }).length >= 4
         if (flotilla18 >= 4) {
             addQuestCount(337) // 「十八駆」演習！
         }
@@ -1446,6 +1519,9 @@ function addCountForPracticeBattleResultPart(data) {
         }
         if (hasExFlotilla15) {
             addQuestCount(355) // 精鋭「第十五駆逐隊」第一小隊演習！
+        }
+        if (hasExFlotilla19) {
+            addQuestCount(356) // 精鋭「第十九駆逐隊」演習！
         }
     }
     if (isWinA(rank)) {

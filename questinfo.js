@@ -6,7 +6,7 @@
 
 data_prefix = "QSE.Ver2."
 /** バージョン */
-var VERSION = 2.59
+var VERSION = 2.60
 /** バージョン確認URL */
 var UPDATE_CHECK_URL = "https://api.github.com/repos/BOZWXJ/QuestStateEx/releases/latest"
 /** ファイルの場所 */
@@ -645,6 +645,28 @@ var QUEST_DATA = {
         /** 離島守備隊(6-4 ボス)A 勝利 */
         new QuestData(2, false, true, [RESET.YEARLY, RESET.JUNE], "6-4ボスA勝利"),
     ],
+    /**[973]日英米合同水上艦隊、抜錨せよ！ */
+    973: [
+        /** 敵北方侵攻艦隊(3-1ボス)A勝利 */
+        new QuestData(1, false, true, [RESET.YEARLY, RESET.MAY], "3-1ボスA勝利"),
+        /** 深海棲艦泊地艦隊(3-3ボス)A勝利 */
+        new QuestData(1, false, true, [RESET.YEARLY, RESET.MAY], "3-3ボスA勝利"),
+        /** 深海東方部隊 海峡封鎖部隊旗艦(7-3-2 ボス)A 勝利 */
+        new QuestData(1, false, true, [RESET.YEARLY, RESET.MAY], "7-3-2ボスA勝利"),
+        /** 敵東方港湾基地(4-3 ボス)A 勝利 */
+        new QuestData(1, false, true, [RESET.YEARLY, RESET.MAY], "4-3ボスA勝利"),
+    ],
+    /**[975] 精鋭「第十九駆逐隊」、全力出撃！ */
+    975: [
+        /** 敵通商破壊主力艦隊(1-5ボス)S勝利 */
+        new QuestData(1, false, true, [RESET.YEARLY, RESET.MAY], "1-5ボスS勝利"),
+        /** 敵主力打撃群(2-3ボス)S勝利 */
+        new QuestData(1, false, true, [RESET.YEARLY, RESET.MAY], "2-3ボスS勝利"),
+        /** 敵キス島包囲艦隊(3-2ボス)S勝利 */
+        new QuestData(1, false, true, [RESET.YEARLY, RESET.MAY], "3-2ボスS勝利"),
+        /** 敵サーモン方面主力艦隊(5-3ボス戦)S勝利 */
+        new QuestData(1, false, true, [RESET.YEARLY, RESET.MAY], "5-3ボスS勝利"),
+    ],
     // #endregion
     // #region 演習
     /** [302]大規模演習 */
@@ -738,6 +760,11 @@ var QUEST_DATA = {
     355: [
         /** S勝利 */
         new QuestData(4, true, true, [RESET.NOT_SATISFY_DAILY, RESET.YEARLY, RESET.OCTOBER]),
+    ],
+    /** [356]精鋭「第十九駆逐隊」演習！ */
+    356: [
+        /** S勝利 */
+        new QuestData(3, true, true, [RESET.NOT_SATISFY_DAILY, RESET.YEARLY, RESET.MAY]),
     ],
     // #endregion
     // #region 遠征
@@ -1278,6 +1305,11 @@ var QUEST_DATA = {
         new QuestData(3, false, false, RESET.NONE, "「零式艦戦52型」用意"),
         /** 「ボーキサイト」用意 */
         new QuestData(1800, false, false, RESET.NONE, "「ボーキサイト」用意"),
+    ],
+    /** [1123]改良三座水上偵察機の増備 */
+    1123: [
+        /** 「九七式艦攻(九三一空)」廃棄(一括は別々) */
+        new QuestData(2, false, true, [RESET.YEARLY, RESET.JANUARY], "「九七式艦攻(九三一空)」廃棄"),
     ],
     // #endregion
 }
