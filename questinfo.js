@@ -6,7 +6,7 @@
 
 data_prefix = "QSE.Ver2."
 /** バージョン */
-var VERSION = 2.60
+var VERSION = 2.61
 /** バージョン確認URL */
 var UPDATE_CHECK_URL = "https://api.github.com/repos/BOZWXJ/QuestStateEx/releases/latest"
 /** ファイルの場所 */
@@ -279,12 +279,12 @@ var QUEST_DATA = {
     /** [242]敵東方中枢艦隊を撃破せよ！ */
     242: [
         /** 敵東方中枢艦隊(4-4ボス)勝利 */
-        new QuestData(1, true, true, RESET.WEEKLY),
+        new QuestData(1, true, true, RESET.WEEKLY, "4-4ボス勝利"),
     ],
     /** [243]南方海域珊瑚諸島沖の制空権を握れ！ */
     243: [
         /** 敵機動部隊本隊(5-2ボス)S勝利 */
-        new QuestData(2, true, true, RESET.WEEKLY),
+        new QuestData(2, true, true, RESET.WEEKLY, "5-2ボスS勝利"),
     ],
     /** [249]「第五戦隊」出撃せよ！ */
     249: [
@@ -309,7 +309,7 @@ var QUEST_DATA = {
     /** [261]海上輸送路の安全確保に努めよ！ */
     261: [
         /** 敵通商破壊主力艦隊(1-5ボス)A勝利 */
-        new QuestData(3, true, true, RESET.WEEKLY),
+        new QuestData(3, true, true, RESET.WEEKLY, "1-5ボスA勝利"),
     ],
     /** [264]「空母機動部隊」西へ！ */
     264: [
@@ -524,7 +524,7 @@ var QUEST_DATA = {
         /** 敵通商破壊主力潜水艦隊(1-5 ボス)S 勝利 */
         new QuestData(1, false, true, [RESET.YEARLY, RESET.FEBRUARY], "1-5ボスS勝利"),
         /** 鎮守府近海航路(1-6)ゴール地点到達 */
-        new QuestData(1, false, true, [RESET.YEARLY, RESET.FEBRUARY], "1-6ボスS勝利")
+        new QuestData(1, false, true, [RESET.YEARLY, RESET.FEBRUARY], "1-6ボス到達")
     ],
     // /** [906]【桃の節句作戦】鎮守府近海の安全を図れ！ */
     // 906: [
@@ -613,6 +613,24 @@ var QUEST_DATA = {
         new QuestData(2, false, true, [RESET.YEARLY, RESET.SEPTEMBER], "7-2-2ボスS勝利"),
         /** 深海東方部隊 海峡封鎖部隊旗艦(7-3-2 ボス)S 勝利 */
         new QuestData(2, false, true, [RESET.YEARLY, RESET.SEPTEMBER], "7-3-2ボスS勝利"),
+    ],
+    /**[944]鎮守府近海海域の哨戒を実施せよ！ */
+    944: [
+        /** 敵主力艦隊(1-2 ボス)A 勝利 */
+        new QuestData(2, false, true, [RESET.YEARLY, RESET.JUNE], "1-2ボスA勝利"),
+        /** 敵主力艦隊(1-3 ボス)A 勝利 */
+        new QuestData(2, false, true, [RESET.YEARLY, RESET.JUNE], "1-3ボスA勝利"),
+        /** 敵機動部隊(1-4 ボス)A 勝利 */
+        new QuestData(2, false, true, [RESET.YEARLY, RESET.JUNE], "1-4ボスA勝利"),
+    ],
+    /**[945]南西方面の兵站航路の安全を図れ！ */
+    945: [
+        /** 敵通商破壊主力潜水艦隊(1-5 ボス)A 勝利*/
+        new QuestData(2, false, true, [RESET.YEARLY, RESET.JUNE], "1-5ボスA勝利"),
+        /** 鎮守府近海航路(1-6)ゴール地点到達*/
+        new QuestData(2, false, true, [RESET.YEARLY, RESET.JUNE], "1-6ゴール到達"),
+        /** 敵主力部隊(2-1 ボス)A 勝利*/
+        new QuestData(2, false, true, [RESET.YEARLY, RESET.JUNE], "2-1ボスA勝利"),
     ],
     /**[946]空母機動部隊、出撃！敵艦隊を迎撃せよ！ */
     946: [
@@ -765,6 +783,16 @@ var QUEST_DATA = {
     356: [
         /** S勝利 */
         new QuestData(3, true, true, [RESET.NOT_SATISFY_DAILY, RESET.YEARLY, RESET.MAY]),
+    ],
+    /** [357]「大和型戦艦」第一戦隊演習、始め！ */
+    357: [
+        /** S勝利 */
+        new QuestData(3, true, true, [RESET.NOT_SATISFY_DAILY, RESET.YEARLY, RESET.JUNE]),
+    ],
+    /** [368]「十六駆」演習！ */
+    368: [
+        /** S勝利 */
+        new QuestData(3, true, true, [RESET.NOT_SATISFY_DAILY, RESET.YEARLY, RESET.JULY]),
     ],
     // #endregion
     // #region 遠征
@@ -1183,6 +1211,17 @@ var QUEST_DATA = {
         new QuestData(3, false, true, RESET.QUARTERLY, "「水偵」廃棄"),
         /** 「ボーキサイト」用意 */
         new QuestData(1800, false, false, RESET.NONE, "「ボーキサイト」用意"),
+    ],
+    /** [1105]夏の格納庫整備＆航空基地整備 */
+    1105: [
+        /** 「陸攻」廃棄(一括は別々) */
+        new QuestData(3, false, true, [RESET.YEARLY, RESET.JULY], "「陸攻」廃棄"),
+        /** 「九七式艦攻」用意 */
+        new QuestData(4, false, false, RESET.NONE, "「九七式艦攻」用意"),
+        /** 「天山」用意 */
+        new QuestData(4, false, false, RESET.NONE, "「天山」用意"),
+        /** 「弾薬」用意 */
+        new QuestData(2800, false, false, RESET.NONE, "「弾薬」用意"),
     ],
     // #endregion
     // #region 近代化改修

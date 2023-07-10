@@ -218,6 +218,8 @@ function savePortItem(data) {
         saveQuestCount(1104, getLength(itemList[28]), 4, true) // 潜水艦強化兵装の量産[22号対水上電探]
         saveQuestCount(1120, getLength(itemList[20]), 4, true) // 【機種整理統合】新型戦闘機の量産計画[零式艦戦21型]
         saveQuestCount(1120, getLength(itemList[21]), 5, true) // 【機種整理統合】新型戦闘機の量産計画[零式艦戦52型]
+        saveQuestCount(1105, getLength(itemList[16]), 2, true) // 夏の格納庫整備＆航空基地整備[九七式艦攻]
+        saveQuestCount(1105, getLength(itemList[17]), 3, true) // 夏の格納庫整備＆航空基地整備[天山]
     }
 }
 
@@ -333,6 +335,7 @@ function addCountForNextPart(data) {
         var stypes = GlobalContext.getDock(sortieFleetIdx + 1).ships.stream().collect(Collectors.groupingBy(function (ship) {
             return ship.stype
         }))
+        var has945Org = ([SHIP_TYPE.CL, SHIP_TYPE.CT].indexOf(ships[0].stype) >= 0 && (getLength(stypes[SHIP_TYPE.DD]) + getLength(stypes[SHIP_TYPE.DE])) >= 3) || ([SHIP_TYPE.DD].indexOf(ships[0].stype) >= 0 && (getLength(stypes[SHIP_TYPE.DD]) + getLength(stypes[SHIP_TYPE.DE])) >= 4)
         if (getLength(stypes[SHIP_TYPE.BBV]) === 2 || getLength(stypes[SHIP_TYPE.AO]) === 2) {
             addQuestCount(861) // 強行輸送艦隊、抜錨！
         }
@@ -345,6 +348,9 @@ function addCountForNextPart(data) {
         }
         if (ships[0].shipInfo.flagship === "あかし" && getLength(stypes[SHIP_TYPE.DD]) >= 3) {
             addQuestCount(912, 1, 2) // 工作艦「明石」護衛任務[1-6]
+        }
+        if (has945Org) {
+            addQuestCount(945, 1, 2) // 南西方面の兵站航路の安全を図れ！[1-6]
         }
     }
 }
@@ -428,6 +434,8 @@ function addCountForBattleResultPart(data) {
     }).length >= 2
     var has912Org = ships[0].shipInfo.flagship === "あかし" && getLength(stypes[SHIP_TYPE.DD]) >= 3
     var has914Org = getLength(stypes[SHIP_TYPE.CA]) >= 3 && getLength(stypes[SHIP_TYPE.DD]) >= 1
+    var has944Org = (ships[0].stype === SHIP_TYPE.CA && getLength(stypes[SHIP_TYPE.DD]) >= 3) || (ships[0].stype === SHIP_TYPE.DD && getLength(stypes[SHIP_TYPE.DD]) >= 4)
+    var has945Org = ([SHIP_TYPE.CL, SHIP_TYPE.CT].indexOf(ships[0].stype) >= 0 && (getLength(stypes[SHIP_TYPE.DD]) + getLength(stypes[SHIP_TYPE.DE])) >= 3) || ([SHIP_TYPE.DD].indexOf(ships[0].stype) >= 0 && (getLength(stypes[SHIP_TYPE.DD]) + getLength(stypes[SHIP_TYPE.DE])) >= 4)
     var has946Org = [SHIP_TYPE.CV, SHIP_TYPE.CVB, SHIP_TYPE.CVL].indexOf(ships[0].stype) >= 0 && (getLength(stypes[SHIP_TYPE.CA]) + getLength(stypes[SHIP_TYPE.CAV])) >= 2
     var has948Org = [SHIP_TYPE.CVL, SHIP_TYPE.CV, SHIP_TYPE.CVB].indexOf(ships[0].stype) >= 0 && Number(lastBattleDto.dock.id) === 1
     var has973Qrg = (getLength(stypes[SHIP_TYPE.CVL]) + getLength(stypes[SHIP_TYPE.CV]) + getLength(stypes[SHIP_TYPE.CVB])) == 0 && ships.map(function (ship) {
@@ -487,6 +495,9 @@ function addCountForBattleResultPart(data) {
                 // addQuestCount(906, 1, 1) // 【桃の節句作戦】鎮守府近海の安全を図れ！[1-2]
                 addQuestCount(906, 1, 1) // 【桃の節句】鎮守府近海、春の安全確保作戦[1-2]
             }
+            if (has944Org) {
+                addQuestCount(944, 1, 1) // 鎮守府近海海域の哨戒を実施せよ！[1-2]
+            }
         }
     }
     if (isEqualMap(1, 3)) {
@@ -508,6 +519,9 @@ function addCountForBattleResultPart(data) {
             }
             if (has912Org) {
                 addQuestCount(912, 1, 1) // 工作艦「明石」護衛任務[1-3]
+            }
+            if (has944Org) {
+                addQuestCount(944, 1, 2) // 鎮守府近海海域の哨戒を実施せよ！[1-3]
             }
         }
     }
@@ -534,11 +548,14 @@ function addCountForBattleResultPart(data) {
                 addQuestCount(284, 1, 1) // 南西諸島方面「海上警備行動」発令！[1-4]
             }
         }
-        // if (isWinA(rank)) {
+        if (isWinA(rank)) {
         //     if (setsubun1) {
         //         addQuestCount(840, 1, 1) //【節分任務】令和二年節分作戦[1-4]
         //     }
-        // }
+            if (has944Org) {
+                addQuestCount(944, 1, 3) // 鎮守府近海海域の哨戒を実施せよ！[1-4]
+            }
+        }
     }
     if (isEqualMap(1, 5)) {
         if (isWinS(rank)) {
@@ -556,6 +573,9 @@ function addCountForBattleResultPart(data) {
             if (has906Org) {
                 // addQuestCount(906, 1, 3) // 【桃の節句作戦】鎮守府近海の安全を図れ！[1-5]
                 addQuestCount(906, 1, 3) // 【桃の節句】鎮守府近海、春の安全確保作戦[1-5]
+            }
+            if (has945Org) {
+                addQuestCount(945, 1, 1) // 南西方面の兵站航路の安全を図れ！[1-5]
             }
         }
     }
@@ -591,6 +611,9 @@ function addCountForBattleResultPart(data) {
             // }
             if (has912Org) {
                 addQuestCount(912, 1, 3) // 工作艦「明石」護衛任務[2-1]
+            }
+            if (has945Org) {
+                addQuestCount(945, 1, 3) // 南西方面の兵站航路の安全を図れ！[2-1]
             }
         }
     }
@@ -1139,6 +1162,8 @@ function addCountForDestroyItem2Part(data) {
         addQuestCount(1103, getLength(slotitemId[125]), 1) // 61cm三連装(酸素)魚雷
         // 潜水艦電子兵装の量産
         addQuestCount(1104, getLength(slotitemId[106]), 1) // 13号対空電探改
+        // 夏の格納庫整備＆航空基地整備
+        addQuestCount(1105, getLength(type2[47]), 1) // 陸攻
         // 【鋼材輸出】基地航空兵力を増備せよ！
         addQuestCount(1107, getLength(type2[6]), 1) // 艦上戦闘機
         addQuestCount(1107, getLength(type2[8]), 2) // 艦上攻撃機
@@ -1472,6 +1497,11 @@ function addCountForPracticeBattleResultPart(data) {
     var dedd = getLength(stypes[SHIP_TYPE.DE]) + getLength(stypes[SHIP_TYPE.DD])
     var deddcl = getLength(stypes[SHIP_TYPE.DE]) + getLength(stypes[SHIP_TYPE.DD]) + getLength(stypes[SHIP_TYPE.CL])
     if (isWinS(rank)) {
+        var flotilla16 = ships.map(function (ship) {
+            return ship.shipInfo.flagship
+        }).filter(function (name) {
+            return ["あまつかぜ", "ゆきかぜ", "ときつかぜ", "はつかぜ"].indexOf(name) >= 0
+        }).length
         var flotilla18 = ships.map(function (ship) {
             return ship.shipInfo.flagship
         }).filter(function (name) {
@@ -1499,6 +1529,11 @@ function addCountForPracticeBattleResultPart(data) {
         }).filter(function (id) {
             return id === 666 || id === 647 || id === 195 || id === 627
         }).length >= 4
+        var has357Org = ships.map(function (ship) {
+            return ship.shipInfo.flagship
+        }).filter(function (name) {
+            return ["やまと", "むさし"].indexOf(name) >= 0
+        }).length >= 2 && getLength(stypes[SHIP_TYPE.CL]) === 1 && getLength(stypes[SHIP_TYPE.DD]) === 2
         if (flotilla18 >= 4) {
             addQuestCount(337) // 「十八駆」演習！
         }
@@ -1522,6 +1557,12 @@ function addCountForPracticeBattleResultPart(data) {
         }
         if (hasExFlotilla19) {
             addQuestCount(356) // 精鋭「第十九駆逐隊」演習！
+        }
+        if (has357Org) {
+            addQuestCount(357) // 「大和型戦艦」第一戦隊演習、始め！
+        }
+        if (flotilla16 >= 2) {
+            addQuestCount(368) // 「十六駆」演習！
         }
     }
     if (isWinA(rank)) {
@@ -1572,6 +1613,7 @@ function updateMaterial() {
         saveQuestCount(645, ammo, 3, true) // 「洋上補給」物資の調達[弾薬]
         saveQuestCount(654, ammo, 3, true) // 精鋭複葉機飛行隊の編成[弾薬]
         saveQuestCount(712, ammo, 3, true) // 【桃の節句】菱餅改修：2021 週[弾薬]
+        saveQuestCount(1105, ammo, 4, true) // 夏の格納庫整備＆航空基地整備
         // 鋼材
         saveQuestCount(663, steel, 2, true) // 新型艤装の継続研究[鋼材]
         saveQuestCount(674, steel, 2, true) // 工廠環境の整備[鋼材]
