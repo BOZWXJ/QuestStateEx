@@ -13,6 +13,7 @@ function questCategory(category) {
 		case 2:
 		case 8:
 		case 9:
+		case 10:
 			return "出撃";
 		case 3:
 			return "演習";

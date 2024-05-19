@@ -45,7 +45,8 @@ function categoryColor(category) {
             return new RGB(0xAA, 0xFF, 0xAA)
         case 2:
         case 8:
-        case 9: //出撃
+        case 9:
+        case 10: //出撃
             return new RGB(0xFF, 0xCC, 0xCC)
         case 3: //演習
             return new RGB(0xDD, 0xFF, 0xAA)

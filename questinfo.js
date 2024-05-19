@@ -6,7 +6,7 @@
 
 data_prefix = "QSE.Ver2."
 /** バージョン */
-var VERSION = 2.61
+var VERSION = 2.62
 /** バージョン確認URL */
 var UPDATE_CHECK_URL = "https://api.github.com/repos/BOZWXJ/QuestStateEx/releases/latest"
 /** ファイルの場所 */
@@ -684,6 +684,17 @@ var QUEST_DATA = {
         new QuestData(1, false, true, [RESET.YEARLY, RESET.MAY], "3-2ボスS勝利"),
         /** 敵サーモン方面主力艦隊(5-3ボス戦)S勝利 */
         new QuestData(1, false, true, [RESET.YEARLY, RESET.MAY], "5-3ボスS勝利"),
+    ],
+    /**[1005] 精強「第七駆逐隊」緊急出動！ */
+    1005: [
+        /** 敵主力艦隊(1-2 ボス)A 勝利 */
+        new QuestData(1, false, true, [RESET.YEARLY, RESET.JANUARY], "1-2ボスA勝利"),
+        /** 敵主力艦隊(1-3 ボス)A 勝利 */
+        new QuestData(1, false, true, [RESET.YEARLY, RESET.JANUARY], "1-3ボスA勝利"),
+        /** 敵通商破壊主力艦隊(1-5ボス)A勝利 */
+        new QuestData(1, false, true, [RESET.YEARLY, RESET.JANUARY], "1-5ボスA勝利"),
+        /** 敵キス島包囲艦隊(3-2ボス)A勝利 */
+        new QuestData(1, false, true, [RESET.YEARLY, RESET.JANUARY], "3-2ボスA勝利"),
     ],
     // #endregion
     // #region 演習
