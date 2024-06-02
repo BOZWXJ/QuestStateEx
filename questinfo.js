@@ -6,7 +6,7 @@
 
 data_prefix = "QSE.Ver2."
 /** バージョン */
-var VERSION = 2.62
+var VERSION = 2.63
 /** バージョン確認URL */
 var UPDATE_CHECK_URL = "https://api.github.com/repos/BOZWXJ/QuestStateEx/releases/latest"
 /** ファイルの場所 */
@@ -695,6 +695,15 @@ var QUEST_DATA = {
         new QuestData(1, false, true, [RESET.YEARLY, RESET.JANUARY], "1-5ボスA勝利"),
         /** 敵キス島包囲艦隊(3-2ボス)A勝利 */
         new QuestData(1, false, true, [RESET.YEARLY, RESET.JANUARY], "3-2ボスA勝利"),
+    ],
+    /**[1012] 鵜来型海防艦、静かな海を防衛せよ！ */
+    1012: [
+        /** 敵主力艦隊(1-1 ボス)S 勝利 */
+        new QuestData(3, false, true, [RESET.YEARLY, RESET.MAY], "1-1ボスS勝利"),
+        /** 敵主力艦隊(1-2 ボス)A 勝利 */
+        new QuestData(2, false, true, [RESET.YEARLY, RESET.MAY], "1-2ボスA勝利"),
+        /** 敵通商破壊主力艦隊(1-5ボス)A勝利 */
+        new QuestData(2, false, true, [RESET.YEARLY, RESET.MAY], "1-5ボスA勝利"),
     ],
     // #endregion
     // #region 演習

@@ -490,6 +490,8 @@ function addCountForBattleResultPart(data) {
         // 潮改 / 潮改二
         return id === 230 || id === 231 || id === 665 || id === 232 || id === 233 || id === 407
     }).length >= 4
+    // 旗艦 鵜来型 + 海防艦 1～3
+    var has1012Org = (ships[0].shipInfo.json.api_ctype | 0) === 117 && getLength(stypes[SHIP_TYPE.DE]) == ships.length && ships.length >= 2 && ships.length <= 4
     // #region ○-○ボス勝利など
     // ボス戦じゃないなら処理終了
     if (!isEqualEvent(EVENT_ID.BOSS_BATTLE)) return
@@ -497,6 +499,9 @@ function addCountForBattleResultPart(data) {
     if (isEqualMap(1, 1) && isWinS(rank)) {
         if (has905Org) {
             addQuestCount(905, 1, 1) // 「海防艦」、海を護る！[1-1]
+        }
+        if (has1012Org) {
+            addQuestCount(1012, 1, 1) // 鵜来型海防艦、静かな海を防衛せよ！[1-1]
         }
     }
     if (isEqualMap(1, 2)) {
@@ -519,7 +524,10 @@ function addCountForBattleResultPart(data) {
             if (has1005Org) {
                 addQuestCount(1005, 1, 1) // 精強「第七駆逐隊」緊急出動！[1-2]
             }
-        }
+            if (has1012Org) {
+                addQuestCount(1012, 1, 2) // 鵜来型海防艦、静かな海を防衛せよ！[1-2]
+            }
+            }
     }
     if (isEqualMap(1, 3)) {
         if (isWinS(rank)) {
@@ -603,6 +611,9 @@ function addCountForBattleResultPart(data) {
             }
             if (has1005Org) {
                 addQuestCount(1005, 1, 3) // 精強「第七駆逐隊」緊急出動！[1-5]
+            }
+            if (has1012Org) {
+                addQuestCount(1012, 1, 3) // 鵜来型海防艦、静かな海を防衛せよ！[1-5]
             }
         }
     }
