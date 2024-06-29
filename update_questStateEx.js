@@ -1612,6 +1612,8 @@ function addCountForPracticeBattleResultPart(data) {
         }).filter(function (name) {
             return ["おぼろ", "あけぼの", "さざなみ", "うしお"].indexOf(name) >= 0
         }).length
+        // 旗艦 秋月型 + 駆逐艦 2 + 航空戦艦 2
+        var has372Org = (ships[0].shipInfo.json.api_ctype | 0) === 54 && getLength(stypes[SHIP_TYPE.DD]) >= 3 && getLength(stypes[SHIP_TYPE.BBV]) >= 2
         if (dedd >= 3 && deddcl >= 4) {
             addQuestCount(342) // 小艦艇群演習強化任務
         }
@@ -1632,6 +1634,9 @@ function addCountForPracticeBattleResultPart(data) {
         }
         if (flotilla7 >= 4) {
             addQuestCount(350) // 精鋭「第七駆逐隊」演習開始！
+        }
+        if (has372Org) {
+            addQuestCount(372) // 水上艦「艦隊防空演習」を実施せよ！
         }
     }
 }
