@@ -20,6 +20,46 @@ Optional = Java.type("java.util.Optional")
 TreeMap = Java.type("java.util.TreeMap")
 Collectors = Java.type("java.util.stream.Collectors")
 
+// アメリカ艦
+var AmericanCtypes = [
+    125,    // Nevada級
+    93,     // Colorado級
+    107,    // North Carolina級
+    102,    // South Dakota級
+    65,     // Iowa級
+    69,     // Lexington級
+    118,    // Ranger級
+    105,    // Yorktown級
+    84,     // Essex級
+    116,    // Independence級
+    83,     // Casablanca級
+    95,     // Northampton級
+    121,    // New Orleans級
+    110,    // Brooklyn級
+    106,    // St. Louis級
+    99,     // Atlanta級
+    91,     // Fletcher級
+    87,     // John C.Butler級
+    122,    // Salmon級
+    114     // Gato級
+]
+// イギリス艦
+var BritishCtypes = [
+    67,     // Queen Elizabeth級
+    88,     // Nelson級
+    78,     // Ark Royal級
+    112,    // Illustrious級
+    108,    // Town級
+    82      // J級
+]
+// フランス艦
+var FrenchCtypes = [
+    79,     // Richelieu級
+    70,     // C.Teste級
+    128,    // La Galissonnière級
+    129,    // Mogador級
+]
+
 /**
  * @Override
  * 通信データを処理します
@@ -440,37 +480,8 @@ function addCountForBattleResultPart(data) {
     var has948Org = [SHIP_TYPE.CVL, SHIP_TYPE.CV, SHIP_TYPE.CVB].indexOf(ships[0].stype) >= 0 && Number(lastBattleDto.dock.id) === 1
     var has973Org = (getLength(stypes[SHIP_TYPE.CVL]) + getLength(stypes[SHIP_TYPE.CV]) + getLength(stypes[SHIP_TYPE.CVB])) == 0 && ships.map(function (ship) {
         return ship.shipInfo.flagship
-    }).filter(function (name) {
-        // 米英艦(空母以外)
-        /// Nevada / Nevada改 / Nevada改 Mod.2
-        // Colorado /Colorado改
-        // Maryland / Maryland改
-        // Washington / Washington改
-        // South Dakota / South Dakota改
-        // Massachusetts / Massachusetts改
-        // Iowa / Iowa改
-        // Northampton / Northampton改
-        // Houston / Houston改
-        // Tuscaloosa / Tuscaloosa改
-        // Brooklyn / Brooklyn改
-        // Honolulu / Honolulu改
-        // Helena / Helena改
-        // Atlanta / Atlanta改
-        // Fletcher / Fletcher改 / Fletcher改 Mod.2 / Fletcher Mk.II
-        // Johnston / Johnston改
-        // Heywood L.E. / Heywood L.E.改
-        // Samuel B.Roberts / Samuel B.Roberts改 / Samuel B.Roberts Mk.II
-        // Salmon / Salmon改
-        // Drum / Drum改
-        // Scamp / Scamp改
-        // Warspite / Warspite改
-        // Nelson / Nelson改
-        // Rodney / Rodney改
-        // Sheffield / Sheffield改
-        // Jervis / Jervis改
-        // Janus / Janus改
-        // Javelin / Javelin改
-        return ["ネヴァダ", "コロラド", "メリーランド", "ワシントン", "サウスダコタ", "マサチューセッツ", "アイオワ", "ノーザンプトン", "ヒューストン", "タスカルーサ", "ブルックリン", "ホノルル", "ヘレナ", "アトランタ", "フレッチャー", "ジョンストン", "ヘイウッド", "サミュエル・B・ロバーツ", "サーモン", "ドラム", "スキャンプ", "ウォースパイト", "ネルソン", "ロドニー", "シェフィールド", "ジャーヴィス", "ジェーナス", "ジャヴェリン"].indexOf(name) >= 0
+    }).filter(function (ctype) {
+        return AmericanCtypes.indexOf(ctype) >= 0 || BritishCtypes.indexOf(ctype) >= 0
     }).length >= 3
     var has975Org = ships.map(function (ship) {
         return ship.shipId
@@ -1574,7 +1585,12 @@ function addCountForPracticeBattleResultPart(data) {
             return ship.shipInfo.flagship
         }).filter(function (name) {
             return ["やまと", "むさし"].indexOf(name) >= 0
-        }).length >= 2 && getLength(stypes[SHIP_TYPE.CL]) === 1 && getLength(stypes[SHIP_TYPE.DD]) === 2
+        }).length >= 2 && getLength(stypes[SHIP_TYPE.CL]) >= 1 && getLength(stypes[SHIP_TYPE.DD]) >= 2
+        var has375Org = ships.map(function (ship) {
+            return ship.shipInfo.flagship
+        }).filter(function (name) {
+            return ["ひえい", "きりしま"].indexOf(name) >= 0
+        }).length >= 2 && getLength(stypes[SHIP_TYPE.CL]) >= 1 && getLength(stypes[SHIP_TYPE.DD]) >= 2
         if (flotilla18 >= 4) {
             addQuestCount(337) // 「十八駆」演習！
         }
@@ -1605,6 +1621,9 @@ function addCountForPracticeBattleResultPart(data) {
         if (flotilla16 >= 2) {
             addQuestCount(368) // 「十六駆」演習！
         }
+        if (has375Org) {
+            addQuestCount(375) // 「第三戦隊」第二小隊、演習開始！
+        }
     }
     if (isWinA(rank)) {
         var flotilla7 = ships.map(function (ship) {
@@ -1614,6 +1633,12 @@ function addCountForPracticeBattleResultPart(data) {
         }).length
         // 旗艦 秋月型 + 駆逐艦 2 + 航空戦艦 2
         var has372Org = (ships[0].shipInfo.json.api_ctype | 0) === 54 && getLength(stypes[SHIP_TYPE.DD]) >= 3 && getLength(stypes[SHIP_TYPE.BBV]) >= 2
+        // フランス艦 旗艦含む 3 隻
+        var has373Org = FrenchCtypes.indexOf(ships[0].shipInfo.json.api_ctype | 0) >= 0 && ships.map(function (ship) {
+            return ship.shipInfo.flagship
+        }).filter(function (ctype) {
+            return FrenchCtypes.indexOf(ctype) >= 0
+        }).length >= 3
         if (dedd >= 3 && deddcl >= 4) {
             addQuestCount(342) // 小艦艇群演習強化任務
         }
@@ -1637,6 +1662,9 @@ function addCountForPracticeBattleResultPart(data) {
         }
         if (has372Org) {
             addQuestCount(372) // 水上艦「艦隊防空演習」を実施せよ！
+        }
+        if (has373Org) {
+            addQuestCount(373) // 「フランス艦隊」演習！
         }
     }
 }

@@ -6,7 +6,7 @@
 
 data_prefix = "QSE.Ver2."
 /** バージョン */
-var VERSION = 2.64
+var VERSION = 2.65
 /** バージョン確認URL */
 var UPDATE_CHECK_URL = "https://api.github.com/repos/BOZWXJ/QuestStateEx/releases/latest"
 /** ファイルの場所 */
@@ -818,6 +818,16 @@ var QUEST_DATA = {
     372: [
         /** A勝利 */
         new QuestData(4, true, true, [RESET.NOT_SATISFY_DAILY, RESET.YEARLY, RESET.JUNE]),
+    ],
+    /** [373]「フランス艦隊」演習！ */
+    373: [
+        /** A勝利 */
+        new QuestData(4, true, true, [RESET.NOT_SATISFY_DAILY, RESET.YEARLY, RESET.JULY]),
+    ],
+    /** [375]「第三戦隊」第二小隊、演習開始！ */
+    375: [
+        /** S勝利 */
+        new QuestData(4, true, true, [RESET.NOT_SATISFY_DAILY, RESET.YEARLY, RESET.SEPTEMBER]),
     ],
     // #endregion
     // #region 遠征
