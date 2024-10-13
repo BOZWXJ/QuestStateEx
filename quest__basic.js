@@ -84,7 +84,7 @@ function getRankingPoint(questNo) {
 function body(quest) {
     var point = getRankingPoint(quest.no);
 	return toComparable([
-		String("" + quest.getPage() + "-" + quest.getPos()),
+		String("" + ("00" + quest.getPage()).slice(-2) + "-" + quest.getPos()),
 		questType(parseInt(quest.json.api_label_type)),
 		questCategory(parseInt(quest.json.api_category)),
 		quest.getStateString(),
