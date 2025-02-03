@@ -6,7 +6,7 @@
 
 data_prefix = "QSE.Ver2."
 /** バージョン */
-var VERSION = 2.67
+var VERSION = 2.68
 /** バージョン確認URL */
 var UPDATE_CHECK_URL = "https://api.github.com/repos/BOZWXJ/QuestStateEx/releases/latest"
 /** ファイルの場所 */
@@ -303,7 +303,7 @@ var QUEST_DATA = {
     ],
     /** [259]「水上打撃部隊」南方へ！ */
     259: [
-        /** 敵前線司令艦隊(5-1ボス)S勝利 */
+        /** 敵南方前線司令艦隊(5-1 ボス)S 勝利 */
         new QuestData(1, true, true, RESET.MONTHLY, "5-1ボスS勝利"),
     ],
     /** [261]海上輸送路の安全確保に努めよ！ */
@@ -352,52 +352,6 @@ var QUEST_DATA = {
     822: [
         /** 敵侵攻中核艦隊(2-4ボス)S勝利 */
         new QuestData(2, true, true, RESET.QUARTERLY, "2-4ボスS勝利"),
-    ],
-    // /** [840]【節分任務】令和二年節分作戦 */
-    // 840: [
-    //     /** 敵機動部隊(1-4 ボス)A 勝利 */
-    //     new QuestData(1, false, true, RESET.WEEKLY, "1-4ボスA勝利"),
-    //     /** 敵主力部隊(2-1 ボス)A 勝利 */
-    //     new QuestData(1, false, true, RESET.WEEKLY, "2-1ボスA勝利"),
-    //     /** 敵通商破壊機動部隊 主力艦隊(2-2 ボス)A 勝利 */
-    //     new QuestData(1, false, true, RESET.WEEKLY, "2-2ボスA勝利")
-    // ],
-    /** [840]【節分任務】令和三年節分作戦 */
-    840: [
-        /** 敵主力部隊(2-1 ボス)A 勝利 */
-        new QuestData(1, false, true, RESET.WEEKLY, "2-1ボスA勝利"),
-        /** 敵通商破壊機動部隊 主力艦隊(2-2 ボス)A 勝利 */
-        new QuestData(1, false, true, RESET.WEEKLY, "2-2ボスA勝利"),
-        /** 敵主力打撃群(2-3 ボス)A 勝利 */
-        new QuestData(1, false, true, RESET.WEEKLY, "2-3ボスA勝利"),
-    ],
-    // /** [841]【節分任務】令和二年西方海域節分作戦 */
-    /** 【節分任務】令和三年西方海域節分作戦 */
-    841: [
-        /** 敵深海連合部隊 司令部艦隊(4-1 ボス)S 勝利 */
-        new QuestData(1, false, true, RESET.WEEKLY, "4-1ボスS勝利"),
-        /** 敵東方艦隊 強襲上陸主力艦隊(4-2 ボス)S 勝利 */
-        new QuestData(1, false, true, RESET.WEEKLY, "4-2ボスS勝利"),
-        /** 敵東方港湾基地(4-3 ボス)S 勝利 */
-        new QuestData(1, false, true, RESET.WEEKLY, "4-3ボスS勝利")
-    ],
-    // /** [843]【節分拡張任務】令和二年節分作戦、全力出撃！ */
-    // 843: [
-    //     /** 敵南方増援部隊 本隊(5-4 ボス)S 勝利 */
-    //     new QuestData(1, false, true, RESET.WEEKLY, "5-4ボスS勝利"),
-    //     /** 深海南方任務部隊 本隊(5-5 ボス)S 勝利 */
-    //     new QuestData(1, false, true, RESET.WEEKLY, "5-5ボスS勝利"),
-    //     /** 離島守備隊(6-4 ボス)S 勝利 */
-    //     new QuestData(1, false, true, RESET.WEEKLY, "6-4ボスS勝利")
-    // ],
-    /** [843]【節分拡張任務】令和三年節分作戦、全力出撃！ */
-    843: [
-        /** 敵南方増援部隊 本隊(5-2 ボス)S 勝利 */
-        new QuestData(1, false, true, RESET.WEEKLY, "5-2ボスS勝利"),
-        /** 深海南方任務部隊 本隊(5-5 ボス)S 勝利 */
-        new QuestData(1, false, true, RESET.WEEKLY, "5-5ボスS勝利"),
-        /** 離島守備隊(6-4 ボス)S 勝利 */
-        new QuestData(1, false, true, RESET.WEEKLY, "6-4ボスS勝利")
     ],
     /** [845]発令！「西方海域作戦」 */
     845: [
@@ -455,16 +409,16 @@ var QUEST_DATA = {
     ],
     /** [875]精鋭「三一駆」、鉄底海域に突入せよ！ */
     875: [
-        /** 敵補給部隊本体(5-4ボス)S勝利 */
+        /** 敵南方増援部隊 本隊(5-4 ボス)S 勝利 */
         new QuestData(2, true, true, RESET.QUARTERLY, "5-4ボスS勝利"),
     ],
     /** [888]新編成「三川艦隊」、鉄底海峡に突入せよ！ */
     888: [
-        /** 敵前線司令艦隊(5-1ボス戦)S勝利 */
+        /** 敵南方前線司令艦隊(5-1 ボス)S 勝利 */
         new QuestData(1, false, true, RESET.QUARTERLY, "5-1ボスS勝利"),
-        /** 敵サーモン方面主力艦隊(5-3ボス戦)S勝利 */
+        /** 敵南方艦隊 旗艦(5-3 ボス)S 勝利 */
         new QuestData(1, false, true, RESET.QUARTERLY, "5-3ボスS勝利"),
-        /** 敵補給部隊本体(5-4ボス)S勝利 */
+        /** 敵南方増援部隊 本隊(5-4 ボス)S 勝利 */
         new QuestData(1, false, true, RESET.QUARTERLY, "5-4ボスS勝利"),
     ],
     /** [893]泊地周辺海域の安全確保を徹底せよ！ */
@@ -515,14 +469,14 @@ var QUEST_DATA = {
     ],
     /** [905]「海防艦」、海を護る！ */
     905: [
-        /** 敵主力艦隊(1-1 ボス)S 勝利 */
-        new QuestData(1, false, true, [RESET.YEARLY, RESET.FEBRUARY], "1-1ボスS勝利"),
-        /** 敵主力艦隊(1-2 ボス)S 勝利 */
-        new QuestData(1, false, true, [RESET.YEARLY, RESET.FEBRUARY], "1-2ボスS勝利"),
-        /** 敵主力艦隊(1-3 ボス)S 勝利 */
-        new QuestData(1, false, true, [RESET.YEARLY, RESET.FEBRUARY], "1-3ボスS勝利"),
-        /** 敵通商破壊主力潜水艦隊(1-5 ボス)S 勝利 */
-        new QuestData(1, false, true, [RESET.YEARLY, RESET.FEBRUARY], "1-5ボスS勝利"),
+        /** 敵主力艦隊(1-1 ボス)A 勝利 */
+        new QuestData(1, false, true, [RESET.YEARLY, RESET.FEBRUARY], "1-1ボスA勝利"),
+        /** 敵主力艦隊(1-2 ボス)A 勝利 */
+        new QuestData(1, false, true, [RESET.YEARLY, RESET.FEBRUARY], "1-2ボスA勝利"),
+        /** 敵主力艦隊(1-3 ボス)A 勝利 */
+        new QuestData(1, false, true, [RESET.YEARLY, RESET.FEBRUARY], "1-3ボスA勝利"),
+        /** 敵通商破壊主力潜水艦隊(1-5 ボス)A 勝利 */
+        new QuestData(1, false, true, [RESET.YEARLY, RESET.FEBRUARY], "1-5ボスA勝利"),
         /** 鎮守府近海航路(1-6)ゴール地点到達 */
         new QuestData(1, false, true, [RESET.YEARLY, RESET.FEBRUARY], "1-6ボス到達")
     ],
@@ -682,7 +636,7 @@ var QUEST_DATA = {
         new QuestData(1, false, true, [RESET.YEARLY, RESET.MAY], "2-3ボスS勝利"),
         /** 敵キス島包囲艦隊(3-2ボス)S勝利 */
         new QuestData(1, false, true, [RESET.YEARLY, RESET.MAY], "3-2ボスS勝利"),
-        /** 敵サーモン方面主力艦隊(5-3ボス戦)S勝利 */
+        /** 敵南方艦隊 旗艦(5-3 ボス)S 勝利 */
         new QuestData(1, false, true, [RESET.YEARLY, RESET.MAY], "5-3ボスS勝利"),
     ],
     /**[1005] 精強「第七駆逐隊」緊急出動！ */
@@ -704,6 +658,17 @@ var QUEST_DATA = {
         new QuestData(2, false, true, [RESET.YEARLY, RESET.MAY], "1-2ボスA勝利"),
         /** 敵通商破壊主力艦隊(1-5ボス)A勝利 */
         new QuestData(2, false, true, [RESET.YEARLY, RESET.MAY], "1-5ボスA勝利"),
+    ],
+    /**[1018] 「第三戦隊」第二小隊、鉄底海峡へ！ */
+    1018: [
+        /** 敵南方前線司令艦隊(5-1 ボス)A 勝利 */
+        new QuestData(1, false, true, [RESET.YEARLY, RESET.SEPTEMBER], "5-1ボスA勝利"),
+        /** 敵南方艦隊 旗艦(5-3 ボス)A 勝利 */
+        new QuestData(1, false, true, [RESET.YEARLY, RESET.SEPTEMBER], "5-3ボスA勝利"),
+        /** 敵南方増援部隊 本隊(5-4 ボス)A 勝利 */
+        new QuestData(1, false, true, [RESET.YEARLY, RESET.SEPTEMBER], "5-4ボスA勝利"),
+        /** 深海南方任務部隊 本隊(5-5 ボス)A 勝利 */
+        new QuestData(1, false, true, [RESET.YEARLY, RESET.SEPTEMBER], "5-5ボスA勝利")
     ],
     // #endregion
     // #region 演習
@@ -733,11 +698,6 @@ var QUEST_DATA = {
         new QuestData(3, false, true, [RESET.NOT_SATISFY_DAILY, RESET.MONTHLY], "演習B勝利"),
         /** 戦闘糧食 */
         new QuestData(1, false, false, RESET.NONE, "「戦闘糧食」装備"),
-    ],
-    /** [329]【節分任務】節分演習！ */
-    329: [
-        /** S勝利 */
-        new QuestData(3, true, true, RESET.DAILY),
     ],
     /** [330]空母機動部隊、演習始め！ */
     330: [
@@ -828,6 +788,11 @@ var QUEST_DATA = {
     375: [
         /** S勝利 */
         new QuestData(4, true, true, [RESET.NOT_SATISFY_DAILY, RESET.YEARLY, RESET.SEPTEMBER]),
+    ],
+    /** [377]「第二駆逐隊(後期編成)」、練度向上！ */
+    377: [
+        /** S勝利 */
+        new QuestData(4, true, true, [RESET.NOT_SATISFY_DAILY, RESET.YEARLY, RESET.OCTOBER]),
     ],
     // #endregion
     // #region 遠征
